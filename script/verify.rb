@@ -37,7 +37,7 @@ Movie.transaction do
   check(client.response.status == 404, "Missing movie")
   Movie.delete_all
   client.get "/movies"
-  check(client.response.status == 200 && client.response.body.include?("Every collection starts"), "Empty state")
+  check(client.response.status == 200 && client.response.body.include?("No movies yet."), "Empty state")
   client.get "/up"
   check(client.response.status == 200, "Health check")
   raise ActiveRecord::Rollback

@@ -1,24 +1,21 @@
-<% content_for :title, "Your collection" %>
+<% content_for :title, "Movies" %>
 <section class="page-heading">
-  <div><p class="eyebrow">THE MOVIE SHELF</p><h1>Your collection<span class="count"><%= @movies.size %></span></h1><p class="muted">Old favorites and new discoveries, all in one place.</p></div>
-  <%= link_to new_movie_path, class: "button primary" do %><span aria-hidden="true">＋</span> Add a movie<% end %>
+  <h1>Movies <span class="count"><%= @movies.size %></span></h1>
+  <%= link_to "Add movie", new_movie_path, class: "button primary" %>
 </section>
 <% if @movies.any? %>
   <section class="collection" aria-label="Movie collection">
-    <div class="collection-label"><span>All movies</span><span class="muted">A — Z</span></div>
     <div class="table-scroll"><table>
-      <thead><tr><th scope="col">TITLE</th><th scope="col">RATING</th><th scope="col">RELEASE DATE</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
-      <tbody><% @movies.each_with_index do |movie, index| %>
+      <thead><tr><th scope="col">Title</th><th scope="col">Rating</th><th scope="col">Released</th></tr></thead>
+      <tbody><% @movies.each do |movie| %>
         <tr>
-          <td><div class="movie-title"><span class="row-number" aria-hidden="true"><%= format("%02d", index + 1) %></span><%= link_to movie.title, movie, class: "title-link" %></div></td>
-          <td><span class="rating"><%= movie.rating %></span></td>
+          <td><%= link_to movie.title, movie, class: "title-link" %></td>
+          <td><%= movie.rating %></td>
           <td class="date"><%= movie.release_date&.strftime("%b %-d, %Y") || "Not specified" %></td>
-          <td class="row-action"><%= link_to movie, aria: { label: "View #{movie.title}" } do %>View <span aria-hidden="true">↗</span><% end %></td>
         </tr>
       <% end %></tbody>
     </table></div>
-    <div class="collection-bottom"><%= pluralize(@movies.size, "film") %> in your collection</div>
   </section>
 <% else %>
-  <section class="empty-state"><p class="eyebrow">A FRESH START</p><h2>Every collection starts with one film.</h2><p class="muted">Add a favorite to make this shelf your own.</p><%= link_to "Add your first movie", new_movie_path, class: "button primary" %></section>
+  <section class="empty-state"><h2>No movies yet.</h2><%= link_to "Add your first movie", new_movie_path, class: "button primary" %></section>
 <% end %>

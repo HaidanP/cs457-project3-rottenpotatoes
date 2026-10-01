@@ -1,5 +1,5 @@
 <% content_for :title, @movie.title %>
 <%= link_to "← Back to collection", movies_path, class: "back-link" %>
-<section class="page-heading detail-heading"><div><p class="eyebrow">FROM YOUR COLLECTION</p><h1><%= @movie.title %></h1></div><%= link_to "Edit movie", edit_movie_path(@movie), class: "button primary" %></section>
+<section class="page-heading detail-heading"><div><h1><%= @movie.title %></h1></div><%= link_to "Edit movie", edit_movie_path(@movie), class: "button primary" %></section>
 <%= render @movie %>
 <details class="delete-section"><summary>Delete this movie</summary><p class="muted">This will permanently remove “<%= @movie.title %>” from your collection.</p><%= button_to "Delete movie", @movie, method: :delete, class: "button danger" %></details>

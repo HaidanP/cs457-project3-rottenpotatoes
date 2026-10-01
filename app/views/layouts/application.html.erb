@@ -14,8 +14,8 @@
     <header class="site-header">
       <div class="header-inner">
         <%= link_to movies_path, class: "brand", aria: { label: "Rotten Potatoes home" } do %>
-          <span class="logo-frame"><%= image_tag "rotten-potatoes.png", alt: "", class: "logo" %></span>
-          <span>Rotten Potatoes<span class="brand-caption">A home for your films.</span></span>
+          <span class="logo-frame"><%= image_tag "potato-sketch.png", alt: "", class: "logo" %></span>
+          <span>Rotten Potatoes</span>
         <% end %>
         <nav aria-label="Main navigation"><%= link_to "Collection", movies_path, class: "nav-link", aria: { current: (action_name == "index" ? "page" : nil) } %></nav>
       </div>
@@ -26,6 +26,5 @@
       <% end %>
       <%= yield %>
     </main>
-    <footer class="site-footer"><span>Rotten Potatoes</span><span>Good films. Questionable potatoes.</span></footer>
   </body>
 </html>
