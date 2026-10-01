@@ -51,6 +51,10 @@ The build applies migrations without resetting the database. Production uses Pos
 
 ## Submission status
 
-The local application is implemented and verified. GitHub push and Render deployment require signing in to those accounts. No deployment URL has been invented or substituted for the provided demo URL.
+Application: https://cs457-project3-rottenpotatoes-6cmg.onrender.com
 
-The submission archive excludes credentials, local databases, dependencies, logs, caches, and Git internals. Keep the local master key separately for Render. Update the URL file and recreate the archive after deployment.
+Private source repository: https://github.com/HaidanP/cs457-project3-rottenpotatoes
+
+Render uses the `main` branch, Ruby 4.0.6, Rails 8.1.4, and a separate PostgreSQL database. The free database expires October 31, 2026; it must remain available until grading is complete.
+
+The submission archive excludes credentials, local databases, dependencies, logs, caches, and Git internals. Keep the local master key separately for Render. The public application URL is recorded in `../rottenpotatoes-url.txt`.
