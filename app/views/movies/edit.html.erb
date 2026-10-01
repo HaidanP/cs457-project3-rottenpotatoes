@@ -1,0 +1,4 @@
+<% content_for :title, "Edit #{@movie.title}" %>
+<%= link_to "← Back to movie", @movie, class: "back-link" %>
+<div class="form-heading"><p class="eyebrow">THE DETAILS</p><h1>Edit movie</h1><p class="muted">Update the details for <%= @movie.title %>.</p></div>
+<%= render "form", movie: @movie %>

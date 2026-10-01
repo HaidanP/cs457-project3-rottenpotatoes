@@ -1,0 +1,4 @@
+<article id="<%= dom_id movie %>" class="movie-details">
+  <dl class="metadata"><div><dt>Rating</dt><dd><span class="rating"><%= movie.rating %></span></dd></div><div><dt>Release date</dt><dd><%= movie.release_date&.strftime("%B %-d, %Y") || "Not specified" %></dd></div></dl>
+  <section class="description"><h2>About the film</h2><% if movie.description.present? %><%= simple_format movie.description %><% else %><p class="muted">No description yet. Add a few words about this film when you edit it.</p><% end %></section>
+</article>

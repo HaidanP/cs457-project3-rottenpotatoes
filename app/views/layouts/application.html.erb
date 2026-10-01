@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? "#{yield(:title)} · Rotten Potatoes" : "Rotten Potatoes" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="A simple home for your movie collection. Browse, add, and keep track of films with Rotten Potatoes.">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <%= link_to movies_path, class: "brand", aria: { label: "Rotten Potatoes home" } do %>
+          <span class="logo-frame"><%= image_tag "rotten-potatoes.png", alt: "", class: "logo" %></span>
+          <span>Rotten Potatoes<span class="brand-caption">A home for your films.</span></span>
+        <% end %>
+        <nav aria-label="Main navigation"><%= link_to "Collection", movies_path, class: "nav-link", aria: { current: (action_name == "index" ? "page" : nil) } %></nav>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <% flash.each do |type, message| %>
+        <div class="flash <%= type %>" role="status"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer class="site-footer"><span>Rotten Potatoes</span><span>Good films. Questionable potatoes.</span></footer>
+  </body>
+</html>

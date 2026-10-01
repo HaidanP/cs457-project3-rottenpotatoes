@@ -1,0 +1,4 @@
+<% content_for :title, "Add a movie" %>
+<%= link_to "← Back to collection", movies_path, class: "back-link" %>
+<div class="form-heading"><p class="eyebrow">GROW YOUR COLLECTION</p><h1>Add a movie</h1><p class="muted">Start with the essentials. You can edit them anytime.</p></div>
+<%= render "form", movie: @movie %>

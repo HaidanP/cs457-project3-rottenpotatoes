@@ -1,0 +1,12 @@
+<%= form_with model: movie, class: "movie-form" do |form| %>
+  <% if movie.errors.any? %>
+    <div class="form-errors" role="alert"><h2>Please check the following:</h2><ul><% movie.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul></div>
+  <% end %>
+  <div class="field"><%= form.label :title, "Movie title" %><%= form.text_field :title, required: true, maxlength: 200, placeholder: "e.g. The Grand Budapest Hotel", autofocus: true %></div>
+  <div class="form-row">
+    <div class="field"><%= form.label :rating %><%= form.select :rating, Movie::RATINGS, { prompt: "Select a rating" }, { required: true } %></div>
+    <div class="field"><%= form.label :release_date %><%= form.date_field :release_date, value: movie.release_date&.to_date&.iso8601, required: true %></div>
+  </div>
+  <div class="field"><%= form.label :description do %>Description <span class="optional">optional</span><% end %><%= form.text_area :description, rows: 6, maxlength: 10000, placeholder: "What is this film about?" %></div>
+  <div class="form-actions"><%= form.submit(movie.persisted? ? "Save changes" : "Add movie", class: "button primary") %><%= link_to "Cancel", movie.persisted? ? movie_path(movie) : movies_path, class: "button secondary" %></div>
+<% end %>
