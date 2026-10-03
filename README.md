@@ -1,14 +1,14 @@
 # Rotten Potatoes
 
-A minimal Rails movie catalog with the supplied Rotten Potatoes logo, an alphabetical collection, movie details, shared add/edit forms, validation, and deletion.
+A minimal Rails movie catalog with an alphabetical collection, movie details, shared add/edit forms, validation, and deletion.
 
-## Requirements
+## reqs
 
-- Ruby **4.0.6**
-- Rails **8.1.4** (pinned in the Gemfile)
+- Ruby 4.0.6
+- Rails 8.1.4 (pinned in the Gemfile)
 - SQLite for development/test; PostgreSQL for production
 
-## Run locally
+## run locally
 
 If you use rbenv, initialize it in your shell (`eval "$(rbenv init - zsh)"`). The `.ruby-version` file selects the correct Ruby from this directory.
 
@@ -19,9 +19,9 @@ bin/rails db:prepare
 bin/rails server
 ```
 
-Open http://localhost:3000. The homepage redirects to `/movies`. Seeds include the four films from the assignment and can be rerun without duplicating them or overwriting edits.
+open http://localhost:3000. The homepage redirects to `/movies`. Seeds don't include the four films from the assignment but rather 3 of my choosing.
 
-## Verification
+## verification
 
 ```sh
 RAILS_ENV=test bin/rails db:prepare
@@ -31,13 +31,13 @@ bin/rubocop
 bundle exec brakeman --no-pager
 ```
 
-The verification script exercises all CRUD actions, invalid submissions, seed idempotence, missing records, empty collections, and `/up`. It uses a transaction in the test database and rolls back its changes.
+the verification script exercises all CRUD actions, invalid submissions, seed idempotence, missing records, empty collections, and `/up`. It uses a transaction in the test database and rolls back its changes.
 
-## Deploy to Render
+## deploy to Render
 
-The Git repository root is this `rottenpotatoes` directory. Push it to a private GitHub repository, then follow `../docs/part-4--deploy-to-the-cloud--including-the-production-database.md`.
+the Git repository root is this `rottenpotatoes` directory. Push it to a private GitHub repository, then follow `../docs/part-4--deploy-to-the-cloud--including-the-production-database.md`.
 
-Create a PostgreSQL database and a Ruby web service in the same region. Use:
+create a PostgreSQL database and a Ruby web service in the same region. Use:
 
 - Build: `bash bin/render-build.sh`
 - Start: `bundle exec puma -C config/puma.rb -b tcp://0.0.0.0:$PORT`
@@ -49,7 +49,7 @@ Create a PostgreSQL database and a Ruby web service in the same region. Use:
 
 The build applies migrations without resetting the database. Production uses PostgreSQL through `DATABASE_URL`. Verify all four movie actions on Render and put the public app URL in `../rottenpotatoes-url.txt`.
 
-## Submission status
+## submission
 
 Application: https://cs457-project3-rottenpotatoes-6cmg.onrender.com
 
