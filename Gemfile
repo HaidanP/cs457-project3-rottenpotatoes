@@ -41,7 +41,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 group :production do
-  gem "pg", "~> 1.5"
+  gem "pg", "~> 1.7"
 end
 
 group :development, :test do
